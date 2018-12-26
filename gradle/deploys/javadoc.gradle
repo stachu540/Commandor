@@ -1,0 +1,16 @@
+javadoc {
+    source = delombok
+    options {
+        encoding = "UTF-8"
+    }
+    exclude "**/*Impl.java"
+    title = "${archivesBaseName} ${rootProject.version}"
+}
+
+task javadocJar(type: Jar,
+        dependsOn: javadoc,
+        description: "Builds the javadocJar.",
+        group: "build") {
+    from javadoc.destinationDir
+    classifier = "javadoc"
+}

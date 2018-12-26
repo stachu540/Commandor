@@ -1,0 +1,4 @@
+dependencies {
+    compile project(":api")
+    compile "org.javacord:javacord:3.0.1"
+}

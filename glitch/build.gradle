@@ -1,0 +1,10 @@
+repositories {
+    jcenter()
+    maven { url "https://dl.bintray.com/stachu540/GlitchLib" }
+}
+
+dependencies {
+    compile project(":api")
+    compileOnly "io.glitchlib:glitch-core:0.4.0"
+    compile "io.glitchlib:glitch-chat:0.4.0"
+}

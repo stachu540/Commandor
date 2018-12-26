@@ -1,0 +1,63 @@
+apply plugin: "maven-publish"
+
+apply from: "${rootDir}/gradle/deploys/sources.gradle"
+apply from: "${rootDir}/gradle/deploys/javadoc.gradle"
+
+if (project.name != "BOM") {
+    artifacts {
+        archives javadocJar
+        if (project.name != "docs") {
+            archives sourcesJar
+        }
+    }
+}
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            artifactId archivesBaseName
+            if (project.name != "BOM") {
+                from components.java
+                artifact javadocJar
+                if (project.name != "docs") {
+                    artifact sourcesJar
+                }
+            }
+            pom {
+                url = "https://stachu540.github.io/gradle-project-template"
+                issueManagement {
+                    system = 'GitHub'
+                    url = 'https://github.com/stachu540/gradle-project-template/issues'
+                }
+                ciManagement {
+                    system = "Travis-CI"
+                    url = "https://travis-ci.com/stachu540/gradle-project-template"
+                }
+                inceptionYear = "2018"
+                developers {
+                    developer {
+                        id = "stachu540"
+                        name = "Damian Staszewski"
+                        url = "https://github.com/stachu540"
+                        timezone = "Europe/Warsaw"
+                    }
+                }
+                licenses {
+                    license {
+                        name = "MIT"
+                        url = "https://github.com/stachu540/gradle-project-template/blob/master/LICENCE.md"
+                        distribution = "repo"
+                    }
+                }
+                scm {
+                    connection = "scm:git:https://github.com/stachu540/gradle-project-template.git"
+                    developerConnection = "scm:git:git@github.com:stachu540/gradle-project-template.git"
+                    url = "https://github.com/stachu540/gradle-project-template"
+                }
+                distributionManagement {
+                    downloadUrl = "https://github.com/stachu540/gradle-project-template/releases"
+                }
+            }
+        }
+    }
+}

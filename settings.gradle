@@ -1,0 +1,10 @@
+rootProject.name = 'Commandor'
+
+include "bom", "docs"
+
+include "api"
+include ":glitch",
+        ":twitch4j",
+        ":jda",
+        ":discord4j",
+        ":javacord"

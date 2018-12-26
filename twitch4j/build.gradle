@@ -1,0 +1,4 @@
+dependencies {
+    compile project(":api")
+    compile "com.github.twitch4j:twitch4j:v0.12.0"
+}

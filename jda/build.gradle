@@ -1,0 +1,4 @@
+dependencies {
+    compile project(":api")
+    compile "net.dv8tion:JDA:3.8.1_450"
+}
