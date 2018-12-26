@@ -1,6 +1,5 @@
 package commandor.api;
 
-import com.sun.istack.internal.Nullable;
 import commandor.api.annotation.AnnotatedCommandCompiler;
 import java.time.OffsetDateTime;
 import java.time.temporal.ChronoUnit;
@@ -18,7 +17,7 @@ public abstract class Commandor<EVENT, CHANNEL, SENDER, CLIENT, E extends Comman
             PrefixCache prefixCache,
             CommandListener<EVENT, CHANNEL, SENDER, CLIENT, E> listener,
             AnnotatedCommandCompiler<EVENT, CHANNEL, SENDER, CLIENT, E> annotationCompiler,
-            @Nullable Collection<Object> commands
+            Collection<Object> commands
     ) {
         this.listener = listener;
         this.prefixCache = prefixCache;
