@@ -2,7 +2,9 @@ package commandor.discord4j;
 
 import commandor.api.Command;
 import commandor.api.annotation.AnnotatedCommandCompiler;
-import java.lang.reflect.*;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.lang.reflect.Modifier;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;

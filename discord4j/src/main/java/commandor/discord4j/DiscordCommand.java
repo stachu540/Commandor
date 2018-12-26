@@ -1,7 +1,6 @@
 package commandor.discord4j;
 
 import commandor.api.Command;
-import commandor.api.CommandEvent;
 import commandor.api.DiscordCooldownScope;
 import commandor.api.exception.CommandAccessException;
 import commandor.api.exception.CommandException;
