@@ -7,7 +7,7 @@ description = "Bills of Materials (BOM) for ${rootProject.name} packages"
 compileJava.enabled = false
 javadoc.enabled = false
 tasks.withType(Jar) {
-    enabled false
+    enabled = false
 }
 test.enabled = false
 
