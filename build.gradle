@@ -1,14 +1,12 @@
 plugins {
     id "net.ltgt.apt" version "0.19"
     id "com.jfrog.bintray" version "1.8.4"
-    id "de.lukaskoerfer.gradle.delombok" version "0.2"
 }
 
 allprojects {
     apply plugin: "net.ltgt.apt"
     apply plugin: "net.ltgt.apt-idea"
     apply plugin: "net.ltgt.apt-eclipse"
-    apply plugin: "de.lukaskoerfer.gradle.delombok"
 
     repositories {
         jcenter()

@@ -1,5 +1,4 @@
 javadoc {
-    source = delombok
     options {
         encoding = "UTF-8"
     }
