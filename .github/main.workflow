@@ -4,11 +4,11 @@ workflow "Test" {
 }
 
 action "JDK 8" {
-  uses = "docker://openjdk:8-alpine"
+  uses = "docker://openjdk:8"
   runs = "./gradlew assemble"
 }
 
 action "JDK 11" {
-  uses = "docker://openjdk:11-alpine"
+  uses = "docker://openjdk:11"
   runs = "./gradlew assemble"
 }
