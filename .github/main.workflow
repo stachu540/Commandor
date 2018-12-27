@@ -5,10 +5,10 @@ workflow "Test" {
 
 action "JDK 8" {
   uses = "docker://gradle:jdk8"
-  runs = "gradle assemble"
+  runs = "gradle --no-daemon assemble"
 }
 
 action "JDK 11" {
   uses = "docker://gradle:jdk11"
-  runs = "gradle assemble"
+  runs = "gradle --no-daemon assemble"
 }
