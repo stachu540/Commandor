@@ -4,11 +4,13 @@ workflow "Test" {
 }
 
 action "JDK 8" {
-  uses = "docker://openjdk:8"
-  runs = "./gradlew assemble"
+  uses = "docker://gradle:jdk8"
+  runs = "gradle"
+  args = [ "assemble" ]
 }
 
 action "JDK 11" {
-  uses = "docker://openjdk:11"
-  runs = "./gradlew assemble"
+  uses = "docker://gradle:jdk11"
+  runs = "gradle"
+  args = [ "assemble" ]
 }
