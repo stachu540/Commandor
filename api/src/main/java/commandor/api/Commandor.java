@@ -42,14 +42,6 @@ public abstract class Commandor<EVENT, CHANNEL, SENDER, CLIENT, E extends Comman
         return (Collection<C>) commands;
     }
 
-    public void handleUsage(E event, Command<EVENT, CHANNEL, SENDER, CLIENT, E> command) {
-        listener.onUsageCommand(event, command);
-    }
-
-    public void handleException(E event, Command<EVENT, CHANNEL, SENDER, CLIENT, E> command, Throwable throwable) {
-        listener.onExceptionCommand(event, command, throwable);
-    }
-
     public void registerCommand(Command<EVENT, CHANNEL, SENDER, CLIENT, E> command) {
         this.commands.add(command);
     }
@@ -80,6 +72,10 @@ public abstract class Commandor<EVENT, CHANNEL, SENDER, CLIENT, E extends Comman
 
     public void applyCooldown(String key, int seconds) {
         cooldown.put(key, OffsetDateTime.now().plusSeconds(seconds));
+    }
+
+    public CommandListener<EVENT, CHANNEL, SENDER, CLIENT, E> getListener() {
+        return listener;
     }
 
     @SuppressWarnings("rawtypes")

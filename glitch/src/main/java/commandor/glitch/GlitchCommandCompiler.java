@@ -1,7 +1,11 @@
-package commandor.discord4j;
+package commandor.glitch;
 
 import commandor.api.Command;
 import commandor.api.annotation.AnnotatedCommandCompiler;
+import glitch.chat.GlitchChat;
+import glitch.chat.events.ChannelMessageEvent;
+import glitch.chat.object.entities.ChannelEntity;
+import glitch.chat.object.entities.ChannelUserEntity;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
@@ -10,29 +14,26 @@ import java.util.List;
 import java.util.stream.Collectors;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import sx.blah.discord.api.IDiscordClient;
-import sx.blah.discord.handle.impl.events.guild.channel.message.MessageReceivedEvent;
-import sx.blah.discord.handle.obj.IChannel;
-import sx.blah.discord.handle.obj.IUser;
+import reactor.core.publisher.Mono;
 
-public class DiscordCommandCompiler implements AnnotatedCommandCompiler<MessageReceivedEvent, IChannel, IUser, IDiscordClient, DiscordCommandEvent> {
+public class GlitchCommandCompiler implements AnnotatedCommandCompiler<ChannelMessageEvent, Mono<ChannelEntity>, Mono<ChannelUserEntity>, GlitchChat, GlitchCommandEvent> {
     private static final Logger LOG = LoggerFactory.getLogger(AnnotatedCommandCompiler.class);
 
     @Override
-    public List<Command<MessageReceivedEvent, IChannel, IUser, IDiscordClient, DiscordCommandEvent>> compile(Object object) {
+    public List<Command<ChannelMessageEvent, Mono<ChannelEntity>, Mono<ChannelUserEntity>, GlitchChat, GlitchCommandEvent>> compile(Object object) {
         return Arrays.stream(object.getClass().getDeclaredMethods())
                 .filter(method ->
-                        method.isAnnotationPresent(commandor.discord4j.annotation.DiscordCommand.class) &&
+                        method.isAnnotationPresent(commandor.glitch.annotation.GlitchCommand.class) &&
                                 !(method.getParameterTypes().length > 1) &&
-                                method.getParameterTypes()[0] == DiscordCommandEvent.class)
+                                method.getParameterTypes()[0] == GlitchCommandEvent.class)
                 .map(method -> compileMethod(object, method))
                 .collect(Collectors.toList());
     }
 
-    private DiscordCommand compileMethod(Object object, Method method) {
-        commandor.discord4j.annotation.DiscordCommand property = method.getAnnotation(commandor.discord4j.annotation.DiscordCommand.class);
+    private GlitchCommand compileMethod(Object object, Method method) {
+        commandor.glitch.annotation.GlitchCommand property = method.getAnnotation(commandor.glitch.annotation.GlitchCommand.class);
 
-        DiscordCommand.Builder builder = new DiscordCommand.Builder()
+        GlitchCommand.Builder builder = new GlitchCommand.Builder()
                 .setName(property.name())
                 .setCooldown(new Command.Cooldown(property.cooldown().time(), property.cooldown().scope()));
 
@@ -45,7 +46,7 @@ public class DiscordCommandCompiler implements AnnotatedCommandCompiler<MessageR
         }
 
         if(property.category().location() != Void.class) {
-            commandor.discord4j.annotation.DiscordCommand.Category category = property.category();
+            commandor.glitch.annotation.GlitchCommand.Category category = property.category();
 
             Arrays.stream(category.location().getDeclaredFields())
                     .filter(f -> Modifier.isStatic(f.getModifiers()) && f.getType().equals(Command.Category.class))

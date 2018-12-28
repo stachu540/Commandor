@@ -44,7 +44,7 @@ public abstract class DiscordCommand extends Command<MessageReceivedEvent, IChan
                 } else event.getApi().applyCooldown(key, getCooldown().getTime());
             }
         } catch (Throwable e) {
-            event.getApi().handleException(event, this, e);
+            event.getApi().getListener().onExceptionCommand(event, this, e);
         }
     }
 

@@ -59,7 +59,7 @@ public abstract class Command<EVENT, CHANNEL, SENDER, CLIENT, E extends CommandE
 
     @SuppressWarnings("unchecked")
     protected void handleUsage(E event) {
-        event.getApi().handleUsage(event, this);
+        event.getApi().getListener().onUsageCommand(event, this);
     }
 
     public static class Cooldown {

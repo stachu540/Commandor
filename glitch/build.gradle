@@ -5,6 +5,8 @@ repositories {
 
 dependencies {
     compile project(":api")
-    compileOnly "io.glitchlib:glitch-core:0.4.0"
-    compile "io.glitchlib:glitch-chat:0.4.0"
+    compileOnly enforcedPlatform("io.glitchlib:glitch-BOM:0.4.0")
+    compileOnly "io.glitchlib:glitch-kraken"
+    compileOnly "io.glitchlib:glitch-chat"
+    compileOnly "io.glitchlib:glitch-core"
 }
