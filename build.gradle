@@ -1,13 +1,8 @@
 plugins {
-    id "net.ltgt.apt" version "0.19"
     id "com.jfrog.bintray" version "1.8.4"
 }
 
 allprojects {
-    apply plugin: "net.ltgt.apt"
-    apply plugin: "net.ltgt.apt-idea"
-    apply plugin: "net.ltgt.apt-eclipse"
-
     repositories {
         jcenter()
     }
@@ -18,7 +13,7 @@ subprojects {
     apply plugin: "maven-publish"
 
     if (project.name != "docs") {
-        archivesBaseName = "${rootProject.name}-${project.name.replace(':', '-')}"
+        archivesBaseName = "${rootProject.name.toLowerCase()}-${project.name.replace(':', '-').toLowerCase()}"
     }
 
     tasks.withType(JavaCompile) {

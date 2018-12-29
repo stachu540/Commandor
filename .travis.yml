@@ -19,7 +19,8 @@ jobs:
   include:
     - stage: deploy
       jdk: openjdk11
-      script: ./gradlew deployDocs
+      before_script: chmod +x ./javadoc-deploy.sh
+      script: ./javadoc-deploy.sh
       if: tag IS present
     - stage: deploy
       jdk: openjdk8

@@ -24,14 +24,14 @@ publishing {
                 }
             }
             pom {
-                url = "https://stachu540.github.io/gradle-project-template"
+                url = "https://stachu540.github.io/Commandor"
                 issueManagement {
                     system = 'GitHub'
-                    url = 'https://github.com/stachu540/gradle-project-template/issues'
+                    url = 'https://github.com/stachu540/Commandor/issues'
                 }
                 ciManagement {
                     system = "Travis-CI"
-                    url = "https://travis-ci.com/stachu540/gradle-project-template"
+                    url = "https://travis-ci.com/stachu540/Commandor"
                 }
                 inceptionYear = "2018"
                 developers {
@@ -45,17 +45,17 @@ publishing {
                 licenses {
                     license {
                         name = "MIT"
-                        url = "https://github.com/stachu540/gradle-project-template/blob/master/LICENCE.md"
+                        url = "https://github.com/stachu540/Commandor/blob/master/LICENCE.md"
                         distribution = "repo"
                     }
                 }
                 scm {
-                    connection = "scm:git:https://github.com/stachu540/gradle-project-template.git"
-                    developerConnection = "scm:git:git@github.com:stachu540/gradle-project-template.git"
-                    url = "https://github.com/stachu540/gradle-project-template"
+                    connection = "scm:git:https://github.com/stachu540/Commandor.git"
+                    developerConnection = "scm:git:git@github.com:stachu540/Commandor.git"
+                    url = "https://github.com/stachu540/Commandor"
                 }
                 distributionManagement {
-                    downloadUrl = "https://github.com/stachu540/gradle-project-template/releases"
+                    downloadUrl = "https://github.com/stachu540/Commandor/releases"
                 }
             }
         }

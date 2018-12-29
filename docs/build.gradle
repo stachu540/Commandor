@@ -3,7 +3,7 @@ javadoc {
     title = "${rootProject.name} ${rootProject.version}"
 
     options {
-        windowTitle = "Glitch ${rootProject.version}"
+        windowTitle = "Commandor ${rootProject.version}"
         addStringOption "Xdoclint:none", "-quiet"
         author true
     }

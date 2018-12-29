@@ -37,12 +37,12 @@ bintray {
     override = false
     pkg {
         userOrg = bintrayUser
-        repo = "maven"
-        name = "gradle-project-template"
+        repo = "Java"
+        name = "Commandor"
         desc = rootProject.description
         licenses = [ "MIT" ]
         publicDownloadNumbers = true
-        vcsUrl = "https://github.com/stachu540/gradle-project-template.git"
+        vcsUrl = "https://github.com/stachu540/Commandor.git"
         version {
             name = rootProject.version
             vcsTag = "v${rootProject.version}"
