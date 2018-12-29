@@ -1,7 +1,11 @@
 task javadocDeploy(type: Copy) {
-    dependsOn javadoc
-    from project.javadoc.destinationDir
-    into "${rootProject.buildDir}/javadoc/${version}/${(project.name == "docs") ? "all" : project.name}"
+    if (project.name != "bom" || project.name != rootProject.name) {
+        dependsOn javadoc
+        from project.javadoc.destinationDir
+        into "${rootProject.buildDir}/javadocs/${System.getenv("TRAVIS_TAG")}/${(project.name == "docs") ? "all" : project.name}"
 
-    includeEmptyDirs = true
+        includeEmptyDirs = true
+    } else {
+        enabled = false
+    }
 }

@@ -36,8 +36,9 @@ subprojects {
     test {
         useJUnitPlatform()
     }
+    
+    apply from: "${rootDir}/gradle/javadocDeploy.gradle"
 }
-
 
 rootProject.bintrayUpload.enabled = false
 rootProject.bintrayPublish.enabled = false
