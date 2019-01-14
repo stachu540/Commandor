@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"commandor.discord4j"},{"l":"commandor.discord4j.annotation"}]

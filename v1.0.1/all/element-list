@@ -1,0 +1,13 @@
+commandor.api
+commandor.api.annotation
+commandor.api.exception
+commandor.discord4j
+commandor.discord4j.annotation
+commandor.glitch
+commandor.glitch.annotation
+commandor.javacord
+commandor.javacord.annotation
+commandor.jda
+commandor.jda.annotation
+commandor.twitch4j
+commandor.twitch4j.annotation
