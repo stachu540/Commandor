@@ -7,7 +7,7 @@ import java.util.*;
 
 public abstract class Commandor<EVENT, CHANNEL, SENDER, CLIENT, E extends CommandEvent<EVENT, CHANNEL, SENDER, CLIENT>> {
     private final AnnotatedCommandCompiler<EVENT, CHANNEL, SENDER, CLIENT, E> annotationCompiler;
-    protected final Set<Command<EVENT, CHANNEL, SENDER, CLIENT, E>> commands = new LinkedHashSet<>(Integer.MAX_VALUE);
+    protected final Set<Command<EVENT, CHANNEL, SENDER, CLIENT, E>> commands = new LinkedHashSet<>();
     private final PrefixCache prefixCache;
     protected final CommandListener<EVENT, CHANNEL, SENDER, CLIENT, E> listener;
 
@@ -81,7 +81,7 @@ public abstract class Commandor<EVENT, CHANNEL, SENDER, CLIENT, E extends Comman
     @SuppressWarnings("rawtypes")
     public static abstract class Builder<EVENT, CHANNEL, SENDER, CLIENT, E extends CommandEvent<EVENT, CHANNEL, SENDER, CLIENT>> {
         protected String defaultPrefix = "!";
-        protected final Set<Object> commands = new LinkedHashSet<>(Integer.MAX_VALUE);
+        protected final Set<Object> commands = new LinkedHashSet<>();
         protected CommandListener<EVENT, CHANNEL, SENDER, CLIENT, E> listener;
         protected AnnotatedCommandCompiler<EVENT, CHANNEL, SENDER, CLIENT, E> compiler;
 
